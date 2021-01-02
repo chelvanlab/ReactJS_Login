@@ -28,18 +28,18 @@ function Login(props) {
           <h3>Login</h3>
           <form>
             <div class="form-group">
-            <input class="form-control" placeholder="yourmail@example.com" type="text" {...username} autoComplete="new-mail" />
+              <input class="form-control" placeholder="yourmail@example.com" type="text" {...username} autoComplete="new-mail" />
             </div>
             <div class="form-group">
-            <input class="form-control" placeholder="Password" type="password" {...password} autoComplete="new-password" />
+              <input class="form-control" placeholder="Password" type="password" {...password} autoComplete="new-password" />
             </div>
             <div class="form-group">
-            {error && <><small style={{ color: 'red' }}>{error}</small><br /></>}<br />
-                    <input class="btn btn-primary btn-lg btn-block" type="button" value={loading ? 'Loading...' : 'Login'} onClick={handleLogin} disabled={loading} />
-          </div>
-          <div class="form-group forget-password">
-                <p>If you are a new user please</p>
-                <a href="#">SignUp</a>
+              {error && <><small style={{ color: 'red' }}>{error}</small><br /></>}<br />
+              <input class="btn btn-primary btn-lg btn-block" type="button" value={loading ? 'Loading...' : 'Login'} onClick={handleLogin} disabled={loading} />
+            </div>
+            <div class="form-group forget-password">
+              <p>If you are a new user please</p>
+              <a href="#">SignUp</a>
             </div>
           </form>
         </div>
