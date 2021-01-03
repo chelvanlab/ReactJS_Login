@@ -1,10 +1,16 @@
 const express = require('express')
 var bodyParser = require('body-parser');
 const app = express()
-const port = 4000
+const port = 4000   
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
+  
 
 var mysql = require('mysql')
 var connection = mysql.createConnection({
@@ -24,14 +30,14 @@ app.get('/login', (request, response) => {
     if (username && password) {
         connection.query('SELECT * FROM login WHERE email = ? AND password = ?', [username, password], function (error, results, fields) {
             if (results.length > 0) {
-                response.send('Sucessfull');
+                response.json({'msg':'Sucessfull'});
             } else {
-                response.send('Incorrect');
+                response.json({'msg':'Incorrect'});
             }
             response.end();
         });
     } else {
-        response.send('Not valid');
+        response.json({'msg':'Not valid'});
         response.end();
     }
 });
