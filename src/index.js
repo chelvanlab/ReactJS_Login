@@ -4,6 +4,7 @@ import './index.css';
 import Login from './Login';
 import App from './App';
 import Profile from './profile';
+import Signup from './signup';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
@@ -14,6 +15,7 @@ ReactDOM.render(
       <Route exact={true} path="/" component={App} />
       <Route exact={true} path="/login" component={Login} />
       <Route exact={true} path="/profile" component={Profile} />
+      <Route exact={true} path="/signup" component={Signup} />
     </Switch>
   </BrowserRouter>,
   document.getElementById('root')
